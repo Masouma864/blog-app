@@ -10,52 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_26_115202) do
-  create_table "comments", force: :cascade do |t|
-    t.string "authorId"
-    t.text "postId"
+ActiveRecord::Schema[7.0].define(version: 2023_01_28_070518) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
     t.text "text"
+    t.integer "comment_counter"
+    t.integer "like_counter"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "comment_id", null: false
-    t.index ["comment_id"], name: "index_comments_on_comment_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
-  create_table "likes", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
+    t.text "text"
+    t.integer "comment_counter"
+    t.bigint "user_id", null: false
+    t.bigint "posts_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["posts_id"], name: "index_comments_on_posts_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "authorId"
     t.string "title"
     t.text "text"
-    t.integer "comments_counter"
+    t.integer "comment_counter"
     t.integer "like_counter"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "comment_id", null: false
-    t.integer "like_id", null: false
-    t.index ["comment_id"], name: "index_posts_on_comment_id"
-    t.index ["like_id"], name: "index_posts_on_like_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.text "photo"
+    t.string "photo"
     t.text "bio"
-    t.integer "post_counter"
+    t.integer "PostsCounter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "users_id", null: false
-    t.integer "like_id", null: false
-    t.index ["like_id"], name: "index_users_on_like_id"
-    t.index ["users_id"], name: "index_users_on_users_id"
   end
 
-  add_foreign_key "comments", "comments"
-  add_foreign_key "posts", "comments"
-  add_foreign_key "posts", "likes"
-  add_foreign_key "users", "likes"
-  add_foreign_key "users", "users", column: "users_id"
+  add_foreign_key "articles", "users"
+  add_foreign_key "comments", "posts", column: "posts_id"
+  add_foreign_key "comments", "users"
+  add_foreign_key "posts", "users"
 end
