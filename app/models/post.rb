@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   has_many :likes, foreign_key: 'posts_id'
   has_many :comments, foreign_key: 'posts_id'
-  belongs_to :user, class_name: "User"
+  belongs_to :user, class_name: 'User'
   after_save :post_counter
 
   def latest_comments
