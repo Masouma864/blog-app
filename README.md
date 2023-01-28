@@ -1,67 +1,169 @@
-# Ruby Course
 
-If you are not familiar with linters and GitHub Actions, read [root level README](../README.md).
+<a name="readme-top"></a>
+# 📗 Table of Contents
 
-## Set-up Rubocop GitHub Action
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#triangular_flag_on_post-deployment)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ (OPTIONAL)](#faq)
+- [📝 License](#license)
 
-[Rubocop](https://www.rubocop.org/) is a Ruby static code analyzer (a.k.a. linter) and code formatter. It will enforce many of the guidelines outlined in the community [Ruby Style Guide](https://rubystyle.guide/).
+# 📖 [ Blog app ] <a name="about-project"></a>
+**[blog app ]** A blogging platform that allows you to create, manage, and publish content on the internet in the form of a blog.
 
-This GitHub Action is going to run [Rubocop](https://docs.rubocop.org/en/stable/) to help you find style issues.
+## 🛠 Built With <a name="built-with"></a>
+- Ruby on rails
 
-Please do the following **steps in this order**:
+### Tech Stack <a name="tech-stack"></a>
 
-1. In the first commit of your feature branch create a `.github/workflows` folder and add a copy of [`.github/workflows/linters.yml`](.github/workflows/linters.yml) to that folder.
-    - **Remember** to use the file linked above
-    - **Remember** that `.github` folder starts with a dot.
-2. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-    - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-3. When you open your first pull request you should see the result of the GitHub Actions:
+<<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://rubyonrails.org/">Rails</a></li>
+  </ul>
+</details>
 
-![gh actions checks](../assets/images/gh-actions-rubocop-linters-checks.png)
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
+  </ul>
+</details>
 
-Click on the `Details` link to see the full output and the errors that need to be fixed:
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details> 
 
-![gh actions failing checks](../assets/images/gh-actions-rubocop-failing-checks.png)
+### Key Features <a name="key-features"></a>
 
-## [OPTIONAL]Set-up RSpec GitHub Action
+- **User resource**
+- **Comment resource**
+- **Post resource**
+- **Like resource**
+- **Model validations**
+- **Rspec tests**
 
-You can run your tests with GitHub Actions to ensure that they are passing before merging a PR.
 
-To use the GitHub Action to run your tests, please do the following **steps in this order**:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-1. Add a copy of [`.github/workflows/tests.yml`](.github/workflows/tests.yml) to your `.github/workflows` folder.
-    - **Remember** to use the file linked above
-    - Do not modify or delete the [`.github/workflows/linters.yml`](.github/workflows/linters.yml) file that should already be in that folder.
-    - RSpec by default will try to run any file ending in `_spec.rb` inside the `spec` folder. Make sure to follow this convention for your tests files so `rspec` can run your spec files.
-    - You can modify the [`.github/workflows/tests.yml`](.github/workflows/tests.yml) file to better fit your custom needs.
-3. When you open your pull request you should see the result of the GitHub Action:
+## 🚀 Live Demo <a name="live-demo"></a>
+- [Live Demo Link]()
 
-![gh actions checks](../assets/images/gh-actions-rspec-tests-checks.png)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Click on the `Details` link of the test action to check the results of your tests.
+## 💻 Getting Started <a name="getting-started"></a>
 
-## Set-up linters in your local env
+To get a local copy up and running, follow these steps.
 
-### [RuboCop](https://docs.rubocop.org/en/stable/)
+### Prerequisites
+- Text Editor (VScode, Atom, Sublime text, etc)
+- Basic knowledge of ruby
+- Basic knowledge of RoR
 
-1. Add this line to the `Gemfile`
-    ```
-    gem 'rubocop', '>= 1.0', '< 2.0'
-    ```
-    *not sure how to use Gemfile? Read [this](https://bundler.io/v1.15/guides/bundler_setup.html).*
-2. Run `bundle install`.
-3. Copy [.rubocop.yml](./.rubocop.yml) to the root directory of your project
-4. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-    - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-5. Run `rubocop`.
-6. Fix linter errors.
-7. **IMPORTANT NOTE**: feel free to research [auto-correct options for Rubocop](https://rubocop.readthedocs.io/en/latest/auto_correct/) if you get a flood of errors but keep in mind that correcting style errors manually will help you to make a habit of writing a clean code!
+In order to run this project you need:
 
-## Troubleshooting
+ - install ruby
+ - Install rails
+ - Install postgresQl
+ - Signup to Github
 
-- While using Colorize gem, if you are facing errors with Rspec related to 
-    ```bash
-    LoadError:
-    cannot load such file -- colorize
-    ```
-    please remove ```--deployment``` from line no. [26](https://github.com/shubham14p3/Ruby-capstone-project/blob/ca86784cc88bea7c933e329c0953f07e21bcf6ca/.github/workflows/tests.yml#L16) of test.yml file.
+### Setup
+
+
+Clone this repository to your desired folder:
+> Command:
+
+- `https://github.com/Masouma864/blog-app.git`
+- cd `blog-app`
+
+### Install
+
+- After opening the files in Visual Studio Code, open the VS Code integrated terminal and run the following commands:
+
+> bundle init
+> bundle install
+> gem install rails
+
+### Usage
+
+- Run the command in your terminal below to run the ruby program
+
+> run the `rails server` command in terminal
+> run `http://localhost:3000` in the browser url
+
+
+### Run tests
+- run `rspec` command to do spec_tests
+- Run the `rubocop -A` command in your terminal for linter checks and corrections
+
+### Deployment
+
+You can deploy this project using:
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 👥 Authors <a name="authors"></a>
+
+  👤 **Masouma Modarresi**
+
+  - GitHub: [Masouma](https://github.com/Masouma864)
+  - LinkedIn: [Masouma](linkedin.com/in/masouma-modarresi/)
+
+ 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+> -[ ] **[ to be communicated ]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/Masouma864/blog-app/issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ⭐️ Show your support <a name="support"></a>
+
+> Write a message to encourage readers to support your project
+
+If you like this project...
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+> Give credit to everyone who inspired your codebase.
+
+I would like to thank...
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p> 
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](https://github.com/Masouma864/blog-app/blob/dev/LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
