@@ -10,29 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0]
-  .define(version: 20_230_128_070_518) do
+ActiveRecord::Schema[7.0].define(version: 20_230_128_171_834) do
+  # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
-  create_table 'articles', force: :cascade do |t|
-    t.string 'title'
-    t.text 'text'
-    t.integer 'comment_counter'
-    t.integer 'like_counter'
-    t.bigint 'user_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['user_id'], name: 'index_articles_on_user_id'
-  end
 
   create_table 'comments', force: :cascade do |t|
     t.text 'text'
     t.integer 'comment_counter'
     t.bigint 'user_id', null: false
-    t.bigint 'posts_id', null: false
+    t.bigint 'post_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
-    t.index ['posts_id'], name: 'index_comments_on_posts_id'
+    t.index ['post_id'], name: 'index_comments_on_post_id'
     t.index ['user_id'], name: 'index_comments_on_user_id'
+  end
+
+  create_table 'likes', force: :cascade do |t|
+    t.string 'name'
+    t.bigint 'user_id', null: false
+    t.bigint 'post_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['post_id'], name: 'index_likes_on_post_id'
+    t.index ['user_id'], name: 'index_likes_on_user_id'
   end
 
   create_table 'posts', force: :cascade do |t|
@@ -43,6 +43,8 @@ ActiveRecord::Schema[7.0]
     t.bigint 'user_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.bigint 'post_id', null: false
+    t.index ['post_id'], name: 'index_posts_on_post_id'
     t.index ['user_id'], name: 'index_posts_on_user_id'
   end
 
@@ -53,10 +55,15 @@ ActiveRecord::Schema[7.0]
     t.integer 'PostsCounter'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.bigint 'user_id', null: false
+    t.index ['user_id'], name: 'index_users_on_user_id'
   end
 
-  add_foreign_key 'articles', 'users'
-  add_foreign_key 'comments', 'posts', column: 'posts_id'
+  add_foreign_key 'comments', 'posts'
   add_foreign_key 'comments', 'users'
+  add_foreign_key 'likes', 'posts'
+  add_foreign_key 'likes', 'users'
+  add_foreign_key 'posts', 'posts'
   add_foreign_key 'posts', 'users'
+  add_foreign_key 'users', 'users'
 end

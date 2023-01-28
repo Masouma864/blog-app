@@ -17,23 +17,21 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: postgres
-  password: aqil1
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
+  username: postgres
+  password: aqil1
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
- 
 
 development:
   <<: *default
-  database: Project_development
-  username: postgres
-  password: aqil1
+  database: blog_project_development
+
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: Project
+  #username: blog_project
 
   # The password associated with the postgres role (username).
   #password:
@@ -45,7 +43,7 @@ development:
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  #port: 5433
+  #port: 5432
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -61,7 +59,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: Project_test
+  database: blog_project_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -85,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: Project_production
-  username: Project
-  password: <%= ENV["PROJECT_DATABASE_PASSWORD"] %>
+  database: blog_project_production
+  username: blog_project
+  password: <%= ENV["BLOG_PROJECT_DATABASE_PASSWORD"] %>
