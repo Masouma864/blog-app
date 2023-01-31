@@ -11,6 +11,5 @@ RSpec.describe Comment, type: :model do
       @comment.text = nil
       expect(@comment).to_not be_valid
     end
-
-end
+  end
 end
