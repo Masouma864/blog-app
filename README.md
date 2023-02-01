@@ -132,7 +132,12 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> -[ ] **[ to be communicated ]**
+- **Views**
+- **Forms**
+- **Validations, Model specs, and n+1 problems**
+- **Add Devise**
+- **Add authorization rules**
+- **Integration specs for Views**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -144,26 +149,30 @@ Feel free to check the [issues page](https://github.com/Masouma864/blog-app/issu
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
+
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+Give a ⭐️ if you like this project and how I managed to build it!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
+- The original design ideal from Microverse💕.
+- Project from [Microverse](https://bit.ly/MicroverseTN) Ruby / Database and Interviewing module.
+- Thanks to the Microverse team for the great curriculum.
+- Thanks to the Code Reviewer(s) for the insightful feedbacks.
+- A great thanks to My coding partner(s), morning session team, and standup team for their contributions.
+- Hat tip to anyone whose code was used.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p> 
 
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE.txt) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
