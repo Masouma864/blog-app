@@ -172,6 +172,7 @@ Give a ⭐️ if you like this project and how I managed to build it!
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/Masouma864/blog-app/blob/dev/LICENSE) licensed.
+This project is [MIT](./LICENSE.txt) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
