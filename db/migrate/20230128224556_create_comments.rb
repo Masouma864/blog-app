@@ -1,11 +1,10 @@
-class CreatePost < ActiveRecord::Migration[7.0]
+class CreateComments < ActiveRecord::Migration[7.0]
   def change
-    create_table :posts do |t|
-      t.string :title
+    create_table :comments do |t|
       t.text :text
       t.integer :comment_counter
-      t.integer :like_counter
       t.references :user, null: false, foreign_key: true
+      t.references :post, null: false, foreign_key: true
 
       t.timestamps
     end
