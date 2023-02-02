@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  layout "standard"
+  layout 'standard'
 
   before_action :set_user
 
@@ -16,3 +16,4 @@ class PostsController < ApplicationController
   def set_user
     @user = User.find(params[:user_id])
   end
+end
