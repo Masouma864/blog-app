@@ -1,2 +1,5 @@
-<h1>Users</h1>
-<p>Show list of all users </p>
+<%= render partial: 'user', locals: { user: @user }%>
+<h3>Bio</h3>
+<%= @user.bio%>
+<h4>Posts</h4>
+<%= render partial: 'post', collection: @posts%>
