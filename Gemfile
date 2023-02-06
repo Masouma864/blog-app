@@ -76,3 +76,6 @@ group :development, :test do
   gem 'rspec-rails'
 end
 gem 'rails-controller-testing'
+
+gem "cssbundling-rails", "~> 1.1"
+gem 'devise'

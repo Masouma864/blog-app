@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
-  layout 'standard'
-
   def index
-    @users = User.all
+    @users = User.all.order('created_at DESC')
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @posts = @user.posts
+    @user = User.find_by(id: params[:id])
   end
 end

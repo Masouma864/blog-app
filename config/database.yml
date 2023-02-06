@@ -17,15 +17,17 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
   username: postgres
-  password: aqil1
+  password: root
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: postgres 
+  timeout: 5000
+
 
 development:
   <<: *default
   database: blog_project_development
+  
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -43,7 +45,7 @@ development:
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  #port: 5432
+  #port: 5433
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
